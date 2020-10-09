@@ -4,8 +4,8 @@
 
     var userData = [{
         username: 'Fatih',
-        link: '98455',
-        password:'1234'
+        link: 'https://github.com/FatihSengul',
+        password:'123456789'
     }];
     // Update table according to data
     var updateTable = function() {
