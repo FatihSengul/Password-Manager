@@ -64,7 +64,6 @@
             td0.innerHTML = i + 1;
             td1.innerHTML = userData[i].username;
             td2.innerHTML = userData[i].link;
-
             password.value= userData[i].password;
             td4.appendChild(btnEdit);
             td5.appendChild(btnDelete);
@@ -72,12 +71,22 @@
 
             //td7.innerHTML=  userData[i].password;
 
-            btnShow.onclick = (function() {
+            /*btnShow.onclick = (function() {
                 return function() {
-                        var showId = this.getAttribute('id');
+                        var showId = this.getElementById('id');
                         td7.innerHTML=userData[showId].password;
                 };
-            })();
+            })();*/
+
+            btnShow.addEventListener('click', function() {
+                var showId = this.getAttribute('id');
+                window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+                td7.innerHTML=userData[showId].password;
+            },  false);
 
             btnDelete.onclick = (function() {
                 return function() {
