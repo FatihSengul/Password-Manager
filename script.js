@@ -16,7 +16,6 @@
         while (dataTable.firstChild) {
             dataTable.removeChild(dataTable.firstChild);
         }
-
         dataTable.appendChild(tableHead);
 
         for (var i = 0; i < userData.length; i++) {
@@ -54,7 +53,7 @@
             td5.appendChild(btnDelete);
             btnDelete.onclick = (function() {
                 return function() {
-                    if (confirm("Are you sure you want to delete?")) {
+                    if (confirm("Kaydı Silmek İstediğinize Emin Misiniz?")) {
                         var deleteId = this.getAttribute('id');
                         userData.splice(deleteId, 1);
                         updateTable();
@@ -100,9 +99,13 @@
                 link: newLink,
                 password: newPassword,
             };
-
-        userData.push(datatoAdd);
-        updateTable();
+            if ((newUserName.length==0) || (newLink.length==0) || (newPassword.length==0)){
+                alert("Alanların Hepsini Doldurmalısınız");
+            }
+            else {
+                userData.push(datatoAdd);
+                updateTable();
+            }
     }
     // Update data
     var updateData = function(id) {
@@ -112,7 +115,13 @@
         userData[id].username = upUserName;
         userData[id].link = upLink;
         userData[id].link =upPassword;
-        updateTable();
+        if ((upUserName.length == 0) || (upLink.length == 0) || (upPassword.length == 0)){
+            alert("Alanların Hepsini Doldurmalısınız");
+        }
+        else {
+
+            updateTable();
+        }
     }
     // Reset the form
     var refreshForm = function() {
