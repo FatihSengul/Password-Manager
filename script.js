@@ -27,7 +27,8 @@
                 td3 = document.createElement('td'),
                 td4 = document.createElement('td'),
                 td5= document.createElement('td'),
-                td6=document.createElement('td'),
+                td6=document.createElement('td'),//show button
+                td7=document.createElement('td'),
                 btnDelete = document.createElement('input'),
                 btnEdit = document.createElement('input'),
                 btnShow = document.createElement('input'),
@@ -43,7 +44,12 @@
             btnEdit.setAttribute('type', 'button');
             btnEdit.setAttribute('value', 'Edit');
             btnEdit.setAttribute('id', i);
-            
+
+            btnShow.setAttribute('type', 'button');
+            btnShow.setAttribute('value', 'Show');
+            btnShow.setAttribute('class', 'btnShow');
+            btnShow.setAttribute('id', i);
+
 
             td3.appendChild(password);
             tr.appendChild(td0);
@@ -53,15 +59,26 @@
             tr.appendChild(td4);
             tr.appendChild(td5);
             tr.appendChild(td6);
-
+            tr.appendChild(td7),
 
             td0.innerHTML = i + 1;
             td1.innerHTML = userData[i].username;
             td2.innerHTML = userData[i].link;
+
             password.value= userData[i].password;
             td4.appendChild(btnEdit);
             td5.appendChild(btnDelete);
             td6.appendChild(btnShow);
+
+            //td7.innerHTML=  userData[i].password;
+
+            btnShow.onclick = (function() {
+                return function() {
+                        var showId = this.getAttribute('id');
+                        td7.innerHTML=userData[showId].password;
+                };
+            })();
+
             btnDelete.onclick = (function() {
                 return function() {
                     if (confirm("Kaydı Silmek İstediğinize Emin Misiniz?")) {
@@ -81,7 +98,6 @@
                 });
                 updateForm(editId);
             }, false);
-
             tbody.appendChild(tr);
         }
         dataTable.appendChild(tbody);
@@ -100,6 +116,10 @@
         saveButton.value = 'Update';
         saveButton.setAttribute('data-update', id);
     }
+
+    /*var showForm = function (id) {
+
+    }*/
     // Save new data
     var saveData = function() {
         var newUserName = document.getElementById('username').value,
