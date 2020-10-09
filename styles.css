@@ -76,6 +76,9 @@ input[type='button'].btnDelete {
 input[type='button'].btnDelete:hover {
     background-color: #e53935;
 }
+input[type='button'].btnShow{
+    background-color: darkorange;
+}
 
 /*Table Stling*/
 table {

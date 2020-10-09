@@ -7,6 +7,7 @@
         link: 'https://github.com/FatihSengul',
         password:'123456789'
     }];
+
     // Update table according to data
     var updateTable = function() {
         var dataTable = document.getElementById('table1'),
@@ -26,8 +27,13 @@
                 td3 = document.createElement('td'),
                 td4 = document.createElement('td'),
                 td5= document.createElement('td'),
+                td6=document.createElement('td'),
                 btnDelete = document.createElement('input'),
-                btnEdit = document.createElement('input');
+                btnEdit = document.createElement('input'),
+                btnShow = document.createElement('input'),
+                password = document.createElement("input");
+                password.type = "password";
+                password.disabled = true;
 
             btnDelete.setAttribute('type', 'button');
             btnDelete.setAttribute('value', 'Delete');
@@ -37,20 +43,25 @@
             btnEdit.setAttribute('type', 'button');
             btnEdit.setAttribute('value', 'Edit');
             btnEdit.setAttribute('id', i);
+            
 
+            td3.appendChild(password);
             tr.appendChild(td0);
             tr.appendChild(td1);
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
             tr.appendChild(td5);
+            tr.appendChild(td6);
+
 
             td0.innerHTML = i + 1;
             td1.innerHTML = userData[i].username;
             td2.innerHTML = userData[i].link;
-            td3.innerHTML = userData[i].password;
+            password.value= userData[i].password;
             td4.appendChild(btnEdit);
             td5.appendChild(btnDelete);
+            td6.appendChild(btnShow);
             btnDelete.onclick = (function() {
                 return function() {
                     if (confirm("Kaydı Silmek İstediğinize Emin Misiniz?")) {
