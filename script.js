@@ -26,7 +26,7 @@
                 td2 = document.createElement('td'),
                 td3 = document.createElement('td'),
                 td4 = document.createElement('td'),
-                //th5= document.createElement('td'),
+                td5= document.createElement('td'),
                 btnDelete = document.createElement('input'),
                 btnEdit = document.createElement('input');
 
@@ -44,14 +44,14 @@
             tr.appendChild(td2);
             tr.appendChild(td3);
             tr.appendChild(td4);
-            //tr.appendChild(td5);
+            tr.appendChild(td5);
 
             td0.innerHTML = i + 1;
             td1.innerHTML = userData[i].username;
             td2.innerHTML = userData[i].link;
             td3.innerHTML = userData[i].password;
             td4.appendChild(btnEdit);
-            //td5.appendChild(btnDelete);
+            td5.appendChild(btnDelete);
             btnDelete.onclick = (function() {
                 return function() {
                     if (confirm("Are you sure you want to delete?")) {
