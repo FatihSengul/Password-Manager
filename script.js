@@ -126,9 +126,6 @@
         saveButton.setAttribute('data-update', id);
     }
 
-    /*var showForm = function (id) {
-
-    }*/
     // Save new data
     var saveData = function() {
         var newUserName = document.getElementById('username').value,
